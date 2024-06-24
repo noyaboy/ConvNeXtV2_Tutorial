@@ -52,7 +52,7 @@ cd MinkowskiEngine
 conda install -y -c nvidia -c pytorch pytorch=1.8.0 cudatoolkit=11.1
 ```
 ```
-conda install -c "nvidia/label/cuda-11.1.0" cuda-nvcc
+conda install -c conda-forge -c defaults -c nvidia cuda==10.1.243
 ```
 ```
 python setup.py install --blas_include_dirs=${CONDA_PREFIX}/include --blas=openblas
