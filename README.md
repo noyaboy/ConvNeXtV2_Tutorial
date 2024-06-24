@@ -41,11 +41,18 @@ cd ConvNeXt-v2
 ```
 git submodule update --init --recursive
 ```
+Then, Fix the Possible Error "Fatal: Needed a Single Revision" by https://phoenixnap.com/kb/git-pull-submodule
 ```
 git submodule update --recursive --remote
 ```
 ```
 cd MinkowskiEngine
+```
+```
+conda install -y -c nvidia -c pytorch pytorch=1.8.0 cudatoolkit=11.1
+```
+```
+conda install -c "nvidia/label/cuda-11.1.0" cuda-nvcc
 ```
 ```
 python setup.py install --blas_include_dirs=${CONDA_PREFIX}/include --blas=openblas
