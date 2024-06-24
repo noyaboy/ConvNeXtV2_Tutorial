@@ -49,10 +49,7 @@ git submodule update --recursive --remote
 cd MinkowskiEngine
 ```
 ```
-conda install -y -c nvidia -c pytorch pytorch=2.1.0 cudatoolkit=12.0
-```
-```
-conda install -c conda-forge -c defaults -c nvidia cuda==12.0
+conda install -c conda-forge -c defaults -c nvidia cuda==11.8
 ```
 ```
 python setup.py install --blas_include_dirs=${CONDA_PREFIX}/include --blas=openblas
