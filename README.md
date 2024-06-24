@@ -14,7 +14,7 @@ conda activate convnextv2
 
 Install [Pytorch](https://pytorch.org/)>=1.8.0, [torchvision](https://pytorch.org/vision/stable/index.html)>=0.9.0 following official instructions. For example:
 ```
-pip install torch==2.1.0+cu120 torchvision==0.16.0+cu120 -f https://download.pytorch.org/whl/torch_stable.html
+pip install torch==2.1.0+cu118 torchvision==0.16.0+cu118 -f https://download.pytorch.org/whl/torch_stable.html
 ```
 
 Clone this repo and install required packages:
