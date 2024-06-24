@@ -14,7 +14,7 @@ conda activate convnextv2
 
 Install [Pytorch](https://pytorch.org/)>=1.8.0, [torchvision](https://pytorch.org/vision/stable/index.html)>=0.9.0 following official instructions. For example:
 ```
-pip install torch==1.8.0+cu111 torchvision==0.9.0+cu111 -f https://download.pytorch.org/whl/torch_stable.html
+pip install torch==1.8.0+cu120 torchvision==0.16.0+cu120 -f https://download.pytorch.org/whl/torch_stable.html
 ```
 
 Clone this repo and install required packages:
@@ -49,10 +49,10 @@ git submodule update --recursive --remote
 cd MinkowskiEngine
 ```
 ```
-conda install -y -c nvidia -c pytorch pytorch=1.8.0 cudatoolkit=11.1
+conda install -y -c nvidia -c pytorch pytorch=2.1.0 cudatoolkit=12.0
 ```
 ```
-conda install -c conda-forge -c defaults -c nvidia cuda==10.1.243
+conda install -c conda-forge -c defaults -c nvidia cuda==12.0
 ```
 ```
 python setup.py install --blas_include_dirs=${CONDA_PREFIX}/include --blas=openblas
