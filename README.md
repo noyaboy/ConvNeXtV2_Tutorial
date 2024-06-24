@@ -36,7 +36,7 @@ Then, Install MinkowskiEngine:
 
 *(Note: we have implemented a customized CUDA kernel for depth-wise convolutions, which the original MinkowskiEngine does not support.)*
 ```
-cd ConvNeXt-v2
+cd ConvNeXt-V2
 ```
 ```
 git submodule update --init --recursive
