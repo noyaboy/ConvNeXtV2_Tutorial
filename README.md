@@ -1,4 +1,5 @@
 # ConvNeXtV2_Tutorial
+Refered to https://github.com/facebookresearch/ConvNeXt-V2
 # Installation
 
 We provide installation instructions for ImageNet classification experiments here.
