@@ -70,4 +70,10 @@ cd apex
 ```
 pip install -v --no-build-isolation --disable-pip-version-check --no-cache-dir --global-option="--cpp_ext" --global-option="--cuda_ext" ./
 ```
-Upload my Makefile to ConvNeXt-V2/
+Install Makefile
+```
+cd ..
+```
+```
+git clone https://github.com/noyaboy/ConvNeXtV2_Tutorial/blob/main/Makefile
+```
