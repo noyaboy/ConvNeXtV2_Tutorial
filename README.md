@@ -70,5 +70,45 @@ cd apex
 ```
 pip install -v --no-build-isolation --disable-pip-version-check --no-cache-dir --global-option="--cpp_ext" --global-option="--cuda_ext" ./
 ```
-Install Makefile
+Install Makefile. <br>
+```
+make pretrain
+```
+Then, to address ModuleNotFoundError: No module named 'torch._six', change <br>
+from torch._six import container_abcs to <br>
+from torch import container_abcs
+(In vim mode, press i to enter insert mode, press esc to exit insert mode, and enter :wq to save and quit.)
+```
+vim /home1/science103555/.conda/envs/convnextv2/lib/python3.8/site-packages/timm/models/layers/helpers.py
+```
+Then, to address ImportError: cannot import name 'container_abcs' from 'torch', change <br>
+import container_abcs from torch to <br>
+import collections.abc as container_abcs <br>
+and add int_classes = int
+```
+vim /home1/science103555/.conda/envs/convnextv2/lib/python3.8/site-packages/timm/models/layers/helpers.py
+```
+Then, to address ModuleNotFoundError: No module named 'torch._six', change <br>
+from torch._six import inf to <br>
+from torch import inf
+```
+vim /home1/science103555/ConvNeXt-V2/utils.py
+```
+Then, to address ImportError: cannot import name 'MinkowskiConvolution' from 'MinkowskiEngine', change <br>
+from MinkowskiEngine import ( to <br>
+from MinkowskiEngine.MinkowskiEngine import (
+```
+vim /home1/science103555/ConvNeXt-V2/models/fcmae.py
+```
+Stuck at 
+```
+Traceback (most recent call last):
+  File "main_pretrain.py", line 27, in <module>
+    import models.fcmae as fcmae
+  File "/home1/science103555/ConvNeXt-V2/models/fcmae.py", line 12, in <module>
+    from MinkowskiEngine.MinkowskiEngine import (
+  File "/home1/science103555/ConvNeXt-V2/MinkowskiEngine/MinkowskiEngine/__init__.py", line 53, in <module>
+    from MinkowskiEngineBackend._C import (
+ModuleNotFoundError: No module named 'MinkowskiEngineBackend'
+```
 
