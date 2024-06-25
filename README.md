@@ -113,7 +113,7 @@ ModuleNotFoundError: No module named 'MinkowskiEngineBackend'
 ```
 Search file:
 ```
-find ./ -name "*MinkowskiEngine*"
+find ./ -name "*MinkowskiEng*"
 ```
 Result:
 ```
