@@ -111,4 +111,14 @@ Traceback (most recent call last):
     from MinkowskiEngineBackend._C import (
 ModuleNotFoundError: No module named 'MinkowskiEngineBackend'
 ```
+Search file:
+```
+find ./ -name "*MinkowskiEngine*"
+```
+Result:
+```
+./.git/modules/MinkowskiEngine
+./MinkowskiEngine
+./MinkowskiEngine/MinkowskiEngine
+```
 
