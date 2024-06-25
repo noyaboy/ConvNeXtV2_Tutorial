@@ -20,7 +20,7 @@ pip install torch==2.1.0+cu118 torchvision==0.16.0+cu118 -f https://download.pyt
 ```
 ssh -T git@github.com
 ```
-if meet Permission denied(publickey), according to the instructions on this webpage: https://blog.csdn.net/qq_38825788/article/details/125859041, authorize the GitHub account.
+If meet Permission denied(publickey), according to the instructions on this webpage: https://blog.csdn.net/qq_38825788/article/details/125859041, authorize the GitHub account.
 ```
 git clone https://github.com/facebookresearch/ConvNeXt-V2.git
 ```
@@ -58,6 +58,9 @@ python setup.py install --blas_include_dirs=${CONDA_PREFIX}/include --blas=openb
 ```
 
 Install apex
+```
+cd ..
+```
 ```
 git clone https://github.com/NVIDIA/apex
 ```
