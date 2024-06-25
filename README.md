@@ -15,7 +15,7 @@ conda activate convnextv2
 
 Install [Pytorch](https://pytorch.org/)>=1.8.0, [torchvision](https://pytorch.org/vision/stable/index.html)>=0.9.0 following official instructions. For example:
 ```
-pip install torch==2.1.0+cu118 torchvision==0.16.0+cu118 -f https://download.pytorch.org/whl/torch_stable.html
+pip install --no-build-isolation -e torch==2.1.0+cu118 torchvision==0.16.0+cu118 -f https://download.pytorch.org/whl/torch_stable.html
 ```
 ```
 ssh -T git@github.com
@@ -100,25 +100,9 @@ from MinkowskiEngine.MinkowskiEngine import (
 ```
 vim /home1/science103555/ConvNeXt-V2/models/fcmae.py
 ```
-Stuck at 
+Pip install MinkowskiEngine
 ```
-Traceback (most recent call last):
-  File "main_pretrain.py", line 27, in <module>
-    import models.fcmae as fcmae
-  File "/home1/science103555/ConvNeXt-V2/models/fcmae.py", line 12, in <module>
-    from MinkowskiEngine.MinkowskiEngine import (
-  File "/home1/science103555/ConvNeXt-V2/MinkowskiEngine/MinkowskiEngine/__init__.py", line 53, in <module>
-    from MinkowskiEngineBackend._C import (
-ModuleNotFoundError: No module named 'MinkowskiEngineBackend'
+pip install -U git+https://github.com/NVIDIA/MinkowskiEngine -v --no-deps --config-settings="--blas_include_dirs=${CONDA_PREFIX}/include" --config-settings="--blas=openblas"
 ```
-Search file:
-```
-find ./ -name "*MinkowskiEng*"
-```
-Result:
-```
-./.git/modules/MinkowskiEngine
-./MinkowskiEngine
-./MinkowskiEngine/MinkowskiEngine
-```
+
 
