@@ -17,8 +17,10 @@ Install [Pytorch](https://pytorch.org/)>=1.8.0, [torchvision](https://pytorch.or
 ```
 pip install torch==2.1.0+cu118 torchvision==0.16.0+cu118 -f https://download.pytorch.org/whl/torch_stable.html
 ```
-
-Clone this repo and install required packages:
+```
+ssh -T git@github.com
+```
+if meet Permission denied(publickey), according to the instructions on this webpage: https://blog.csdn.net/qq_38825788/article/details/125859041, authorize the GitHub account.
 ```
 git clone https://github.com/facebookresearch/ConvNeXt-V2.git
 ```
@@ -31,8 +33,6 @@ pip install submitit
 ```
 conda install openblas-devel -c anaconda -y
 ```
-According to the instructions on this webpage: https://blog.csdn.net/qq_38825788/article/details/125859041, authorize the GitHub account.
-
 Then, Install MinkowskiEngine:
 
 *(Note: we have implemented a customized CUDA kernel for depth-wise convolutions, which the original MinkowskiEngine does not support.)*
@@ -42,7 +42,8 @@ cd ConvNeXt-V2
 ```
 git submodule update --init --recursive
 ```
-Then, Fix the Possible Error "Fatal: Needed a Single Revision" by https://phoenixnap.com/kb/git-pull-submodule
+Then, Fix the Possible Error "Fatal: Needed a Single Revision"  by https://phoenixnap.com/kb/git-pull-submodule
+Clone this repo and install required packages:
 ```
 git submodule update --recursive --remote
 ```
