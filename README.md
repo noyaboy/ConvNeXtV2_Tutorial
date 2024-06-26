@@ -15,7 +15,7 @@ conda activate convnextv2
 
 Install [Pytorch](https://pytorch.org/)>=1.8.0, [torchvision](https://pytorch.org/vision/stable/index.html)>=0.9.0 following official instructions. For example:
 ```
-conda install -c conda-forge -c defaults -c nvidia cuda==11.1
+conda install -c conda-forge -c defaults -c nvidia cuda==11.3
 ```
 ```
 pip install torch==1.8.0+cu111 torchvision==0.9.0+cu111 -f https://download.pytorch.org/whl/torch_stable.html
@@ -47,6 +47,12 @@ git submodule update --init --recursive
 ```
 Then, Fix the Possible Error "Fatal: Needed a Single Revision"  by https://phoenixnap.com/kb/git-pull-submodule
 Clone this repo and install required packages:
+```
+vim .gitmodules
+```
+```
+branch = main
+```
 ```
 git submodule update --recursive --remote
 ```
@@ -104,5 +110,14 @@ Pip install MinkowskiEngine
 ```
 pip install -U git+https://github.com/NVIDIA/MinkowskiEngine -v --no-deps --config-settings="--blas_include_dirs=${CONDA_PREFIX}/include" --config-settings="--blas=openblas"
 ```
-
+Remove
+```
+conda deactivate
+```
+```
+rm -rf ConvNeXt-V2/
+```
+```
+rm -rf .conda/envs/convnextv2/
+```
 
