@@ -15,10 +15,10 @@ conda activate convnextv2
 
 Install [Pytorch](https://pytorch.org/)>=1.8.0, [torchvision](https://pytorch.org/vision/stable/index.html)>=0.9.0 following official instructions. For example:
 ```
-conda install -c conda-forge -c defaults -c nvidia cuda==12.1.0
+conda install -c conda-forge -c defaults -c nvidia cuda==11.8.0
 ```
 ```
-pip install torch==2.3.0+cu121 torchvision==0.18.0+cu121 -f https://download.pytorch.org/whl/torch_stable.html
+pip install torch==2.3.0+cu118 torchvision==0.18.0+cu118 -f https://download.pytorch.org/whl/torch_stable.html
 ```
 ```
 ssh -T git@github.com
