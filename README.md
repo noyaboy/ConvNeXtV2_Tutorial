@@ -42,9 +42,6 @@ Then, Install MinkowskiEngine:
 ```
 cd ConvNeXt-V2
 ```
-```
-git submodule update --init --recursive
-```
 Then, Fix the Possible Error "Fatal: Needed a Single Revision"  by https://phoenixnap.com/kb/git-pull-submodule
 Clone this repo and install required packages:
 ```
@@ -52,6 +49,9 @@ vim .gitmodules
 ```
 ```
 branch = main
+```
+```
+git submodule update --init --recursive
 ```
 ```
 git submodule update --recursive --remote
