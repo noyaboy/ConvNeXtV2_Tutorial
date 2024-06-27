@@ -61,13 +61,8 @@ git submodule update --init --recursive
 git submodule update --recursive --remote
 ```
 ```
-conda install gxx_linux-64
-```
-```
 cd MinkowskiEngine
 ```
-Edit cmdclass={"build_ext": BuildExtension.with_options(use_ninja=True)} in setup.py to <br>
-cmdclass={"build_ext": BuildExtension.with_options(use_ninja=False)}
 ```
 python setup.py install --blas_include_dirs=${CONDA_PREFIX}/include --blas=openblas
 ```
