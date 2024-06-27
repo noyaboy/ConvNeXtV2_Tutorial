@@ -18,7 +18,7 @@ Install [Pytorch](https://pytorch.org/)>=1.8.0, [torchvision](https://pytorch.or
 conda install -c conda-forge -c defaults -c nvidia cuda==11.8.0
 ```
 ```
-pip install torch==2.3.0+cu118 torchvision==0.18.0+cu118 -f https://download.pytorch.org/whl/torch_stable.html
+pip install --no-build-isolation torch==2.3.0+cu118 torchvision==0.18.0+cu118 -f https://download.pytorch.org/whl/torch_stable.html
 ```
 ```
 ssh -T git@github.com
@@ -28,10 +28,10 @@ If meet Permission denied(publickey), according to the instructions on this webp
 git clone https://github.com/facebookresearch/ConvNeXt-V2.git
 ```
 ```
-pip install timm==0.3.2 tensorboardX six
+pip install --no-build-isolation timm==0.3.2 tensorboardX six
 ```
 ```
-pip install submitit
+pip install --no-build-isolation submitit
 ```
 ```
 conda install openblas-devel -c anaconda -y
