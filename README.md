@@ -15,10 +15,10 @@ conda activate convnextv2
 Install [Pytorch](https://pytorch.org/)>=1.8.0, [torchvision](https://pytorch.org/vision/stable/index.html)>=0.9.0 following official instructions. <br>
 Refered to https://blog.csdn.net/qq_42537872/article/details/132322398
 ```
-conda install -c conda-forge cudatoolkit-dev=11.3
+conda install -c conda-forge cuda==12.1.1
 ```
 ```
-pip install torch==1.11.0+cu113 torchvision==0.12.0+cu113 -f https://download.pytorch.org/whl/torch_stable.html
+pip install torch==2.3.1+cu121 torchvision==0.18.1+cu121 -f https://download.pytorch.org/whl/torch_stable.html
 ```
 Check github permission: <br>
 
@@ -40,7 +40,6 @@ pip install submitit
 conda install openblas-devel -c anaconda -y
 ```
 Fix the Possible Error "Fatal: Needed a Single Revision"  by https://phoenixnap.com/kb/git-pull-submodule
-Clone this repo and install required packages:
 ```
 cd ConvNeXt-V2
 ```
@@ -48,6 +47,7 @@ cd ConvNeXt-V2
 vim .gitmodules
 ```
 Add a new line:
+(In vim mode, press i to enter insert mode, press esc to exit insert mode, and enter :wq to save and quit.)
 ```
 branch = main
 ```
@@ -71,7 +71,6 @@ cmdclass={"build_ext": BuildExtension.with_options(use_ninja=False)}
 ```
 python setup.py install --blas_include_dirs=${CONDA_PREFIX}/include --blas=openblas
 ```
-
 Install apex
 ```
 cd ..
@@ -92,7 +91,6 @@ make pretrain
 To address ModuleNotFoundError: No module named 'torch._six', change <br>
 from torch._six import container_abcs to <br>
 from torch import container_abcs
-(In vim mode, press i to enter insert mode, press esc to exit insert mode, and enter :wq to save and quit.)
 ```
 vim /home1/science103555/.conda/envs/convnextv2/lib/python3.8/site-packages/timm/models/layers/helpers.py
 ```
