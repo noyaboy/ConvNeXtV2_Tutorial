@@ -12,18 +12,24 @@ conda create -n convnextv2 python=3.8 -y
 ```
 conda activate convnextv2
 ```
+Install [Pytorch](https://pytorch.org/)>=1.8.0, [torchvision](https://pytorch.org/vision/stable/index.html)>=0.9.0 following official instructions. <br>
+Refered to https://blog.csdn.net/qq_42537872/article/details/132322398
+```
+conda install -c conda-forge cudatoolkit=11.1
+```
+```
+conda install -c conda-forge cudnn==8.9.2.26
+```
+```
+conda install pytorch==1.8.0 torchvision==0.9.0 torchaudio==0.8.0 cudatoolkit=11.1 -c pytorch -c conda-forge
+```
+Check github permission: <br>
 
-Install [Pytorch](https://pytorch.org/)>=1.8.0, [torchvision](https://pytorch.org/vision/stable/index.html)>=0.9.0 following official instructions. For example:
-```
-conda install -c conda-forge -c defaults -c nvidia cuda==11.8.0
-```
-```
-pip install torch==2.3.0+cu118 torchvision==0.18.0+cu118 -f https://download.pytorch.org/whl/torch_stable.html
-```
+If meet Permission denied(publickey), according to the instructions on this webpage: <br> Refered to https://blog.csdn.net/qq_38825788/article/details/125859041, authorize the GitHub account.
 ```
 ssh -T git@github.com
 ```
-If meet Permission denied(publickey), according to the instructions on this webpage: https://blog.csdn.net/qq_38825788/article/details/125859041, authorize the GitHub account.
+Clone this repo and install required packages:
 ```
 git clone https://github.com/facebookresearch/ConvNeXt-V2.git
 ```
@@ -36,20 +42,21 @@ pip install submitit
 ```
 conda install openblas-devel -c anaconda -y
 ```
-Then, Install MinkowskiEngine:
-
-*(Note: we have implemented a customized CUDA kernel for depth-wise convolutions, which the original MinkowskiEngine does not support.)*
+Fix the Possible Error "Fatal: Needed a Single Revision"  by https://phoenixnap.com/kb/git-pull-submodule
+Clone this repo and install required packages:
 ```
 cd ConvNeXt-V2
 ```
-Then, Fix the Possible Error "Fatal: Needed a Single Revision"  by https://phoenixnap.com/kb/git-pull-submodule
-Clone this repo and install required packages:
 ```
 vim .gitmodules
 ```
+Add a new line:
 ```
 branch = main
 ```
+Install MinkowskiEngine:
+
+*(Note: we have implemented a customized CUDA kernel for depth-wise convolutions, which the original MinkowskiEngine does not support.)*
 ```
 git submodule update --init --recursive
 ```
@@ -57,8 +64,13 @@ git submodule update --init --recursive
 git submodule update --recursive --remote
 ```
 ```
+conda install gxx_linux-64
+```
+```
 cd MinkowskiEngine
 ```
+Edit cmdclass={"build_ext": BuildExtension.with_options(use_ninja=True)} in setup.py to <br>
+cmdclass={"build_ext": BuildExtension.with_options(use_ninja=False)}
 ```
 python setup.py install --blas_include_dirs=${CONDA_PREFIX}/include --blas=openblas
 ```
@@ -80,27 +92,27 @@ Install Makefile. <br>
 ```
 make pretrain
 ```
-Then, to address ModuleNotFoundError: No module named 'torch._six', change <br>
+To address ModuleNotFoundError: No module named 'torch._six', change <br>
 from torch._six import container_abcs to <br>
 from torch import container_abcs
 (In vim mode, press i to enter insert mode, press esc to exit insert mode, and enter :wq to save and quit.)
 ```
 vim /home1/science103555/.conda/envs/convnextv2/lib/python3.8/site-packages/timm/models/layers/helpers.py
 ```
-Then, to address ImportError: cannot import name 'container_abcs' from 'torch', change <br>
+To address ImportError: cannot import name 'container_abcs' from 'torch', change <br>
 import container_abcs from torch to <br>
 import collections.abc as container_abcs <br>
 and add int_classes = int
 ```
 vim /home1/science103555/.conda/envs/convnextv2/lib/python3.8/site-packages/timm/models/layers/helpers.py
 ```
-Then, to address ModuleNotFoundError: No module named 'torch._six', change <br>
+To address ModuleNotFoundError: No module named 'torch._six', change <br>
 from torch._six import inf to <br>
 from torch import inf
 ```
 vim /home1/science103555/ConvNeXt-V2/utils.py
 ```
-Then, to address ImportError: cannot import name 'MinkowskiConvolution' from 'MinkowskiEngine', change <br>
+To address ImportError: cannot import name 'MinkowskiConvolution' from 'MinkowskiEngine', change <br>
 from MinkowskiEngine import ( to <br>
 from MinkowskiEngine.MinkowskiEngine import (
 ```
@@ -110,7 +122,7 @@ Pip install MinkowskiEngine
 ```
 pip install -U git+https://github.com/NVIDIA/MinkowskiEngine -v --no-deps --config-settings="--blas_include_dirs=${CONDA_PREFIX}/include" --config-settings="--blas=openblas"
 ```
-Remove
+Remove commands:
 ```
 conda deactivate
 ```
