@@ -63,6 +63,10 @@ git submodule update --recursive --remote
 ```
 cd MinkowskiEngine
 ```
+To address crypt.h: No such file or directory
+```
+cp /usr/include/crypt.h /home1/science103555/.conda/envs/convnextv2/include/python3.8/
+```
 ```
 python setup.py install --blas_include_dirs=${CONDA_PREFIX}/include --blas=openblas
 ```
