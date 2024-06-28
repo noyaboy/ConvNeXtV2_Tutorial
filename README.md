@@ -7,10 +7,10 @@ We provide installation instructions for ImageNet classification experiments her
 ## Dependency Setup
 Create an new conda virtual environment
 ```
-conda create -n convnextv2 python=3.8 -y
+conda create -n convnextv2_cuda_12_1_1 python=3.8 -y
 ```
 ```
-conda activate convnextv2
+conda activate convnextv2_cuda_12_1_1
 ```
 Install [Pytorch](https://pytorch.org/)>=1.8.0, [torchvision](https://pytorch.org/vision/stable/index.html)>=0.9.0 following official instructions. <br>
 Refered to https://blog.csdn.net/qq_42537872/article/details/132322398
@@ -126,6 +126,6 @@ conda deactivate
 rm -rf ConvNeXt-V2/
 ```
 ```
-rm -rf .conda/envs/convnextv2/
+rm -rf .conda/envs/convnextv2_cuda_12_1_1/
 ```
 
