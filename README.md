@@ -1,4 +1,4 @@
-# ConvNeXtV2_Tutorial
+# ConvNeXtV2_cuda12.1.1
 Refered to https://github.com/facebookresearch/ConvNeXt-V2
 # Installation
 
@@ -15,13 +15,10 @@ conda activate convnextv2
 Install [Pytorch](https://pytorch.org/)>=1.8.0, [torchvision](https://pytorch.org/vision/stable/index.html)>=0.9.0 following official instructions. <br>
 Refered to https://blog.csdn.net/qq_42537872/article/details/132322398
 ```
-conda install -c nvidia cuda-nvcc==11.8.89
+conda install -c nvidia cuda==12.1.1
 ```
 ```
-conda install -c nvidia cuda==11.8
-```
-```
-pip install torch==2.3.1+cu118 torchvision==0.18.1+cu118 -f https://download.pytorch.org/whl/torch_stable.html
+pip install torch==2.3.0+cu121 torchvision==0.18.0+cu121 -f https://download.pytorch.org/whl/torch_stable.html
 ```
 Check github permission: <br>
 
@@ -49,7 +46,7 @@ cd ConvNeXt-V2
 ```
 vim .gitmodules
 ```
-Add a new line:
+Add a new line: <br>
 (In vim mode, press i to enter insert mode, press esc to exit insert mode, and enter :wq to save and quit.)
 ```
 branch = main
@@ -70,6 +67,8 @@ To address crypt.h: No such file or directory
 ```
 cp /usr/include/crypt.h /home1/science103555/.conda/envs/convnextv2/include/python3.8/
 ```
+To address nvtx3/nvToolsExt.h: No such file or directory, <br>
+see: https://discuss.pytorch.org/t/failed-to-find-nvtoolsext/179635/3
 ```
 python setup.py install --blas_include_dirs=${CONDA_PREFIX}/include --blas=openblas
 ```
